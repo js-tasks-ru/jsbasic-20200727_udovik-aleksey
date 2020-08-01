@@ -11,6 +11,13 @@ function print(text) {
  */
 function isValid(name) {
   // ваш код...
+  let nameWithoutSpace = name.replace(/ /g,'');
+  if (name.length > nameWithoutSpace.length || name.length < 4 ) {
+    return false;
+  } else {
+    return true;
+  }
+  
 }
 
 function sayHello() {
