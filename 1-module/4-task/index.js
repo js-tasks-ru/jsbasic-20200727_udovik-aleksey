@@ -6,11 +6,11 @@
 function checkSpam(str) {
   // ваш код...
   
-  let regexp1 = /1xbet/;
-  let regexp2 = /xxx/;
+  // let regexp1 = /1xbet/;
+  // let regexp2 = /xxx/;
   str = str.toLowerCase();
 
-  if ( str.match(regexp1) || str.match(regexp2) ) {
+  if ( str.indexOf('1xbet') || str.mindexOf('xxx') ) {
     return true;
   } else {
     return false;
