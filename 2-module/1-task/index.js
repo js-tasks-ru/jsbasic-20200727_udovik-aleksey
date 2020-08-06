@@ -20,7 +20,7 @@ function sumSalary(salaries) {
 
   for (let key in salaries) {
 
-    if (salaries[key] > 1) {
+    if (salaries[key] > 0) {
       sum += salaries[key];
     };   
   };
