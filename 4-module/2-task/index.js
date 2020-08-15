@@ -15,7 +15,7 @@ function makeDiagonalRed(table) {
         }
     }
 
-    //  Второй вариант мне кажетс более лаконичным, но npm test он не прошел
+    //  Второй вариант мне кажется более лаконичным, но npm test он не прошел
 
     // let td = document.querySelectorAll('td');
 
