@@ -5,14 +5,7 @@
 function makeDiagonalRed(table) {
 
     for (let i = 0; i < 5; i++) {
-
-        for (let e = 0; e < 5; e++) {
-
-            if (e === i) {
-
-            table.rows[i].cells[e].style.backgroundColor = 'red';
-            }
-        }
+        table.rows[i].cells[i].style.backgroundColor = 'red';
     }
 
     //  Второй вариант мне кажется более лаконичным, но npm test он не прошел
