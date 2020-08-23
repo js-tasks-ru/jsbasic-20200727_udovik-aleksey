@@ -7,8 +7,6 @@ function initCarousel() {
   // переменные для вычисления сдвига слайда
   let rightShift = 0;
   let leftShift = 0;
-  // переменная для определения текущего положения слайда
-  let coords = '';
   // вычисление размера слайда
   let shiftValue = picture.offsetWidth;
 
@@ -18,7 +16,6 @@ function initCarousel() {
 
       rightShift += -(shiftValue);
       picture.style.transform = `translateX(${rightShift}px)`;
-      coords = picture.style.transform;
 
       // скрываю правую стрелочку, при достижении крайнего правого слайда
       if (rightShift === -(shiftValue*3)) {
@@ -34,7 +31,6 @@ function initCarousel() {
 
       leftShift += shiftValue;
       picture.style.transform = `translateX(${leftShift}px)`;
-      coords = picture.style.transform;
 
       if (leftShift === 0) {
         buttonLeft.style.display = 'none';

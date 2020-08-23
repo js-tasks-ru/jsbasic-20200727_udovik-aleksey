@@ -7,16 +7,13 @@ function initCarousel() {
   var buttonLeft = document.querySelector('.carousel__arrow_left'); // переменные для вычисления сдвига слайда
 
   var rightShift = 0;
-  var leftShift = 0; // переменная для определения текущего положения слайда
-
-  var coords = ''; // вычисление размера слайда
+  var leftShift = 0; // вычисление размера слайда
 
   var shiftValue = picture.offsetWidth;
   buttonLeft.style.display = 'none';
   buttonRight.addEventListener('click', function () {
     rightShift += -shiftValue;
-    picture.style.transform = "translateX(".concat(rightShift, "px)");
-    coords = picture.style.transform; // скрываю правую стрелочку, при достижении крайнего правого слайда
+    picture.style.transform = "translateX(".concat(rightShift, "px)"); // скрываю правую стрелочку, при достижении крайнего правого слайда
 
     if (rightShift === -(shiftValue * 3)) {
       buttonRight.style.display = 'none';
@@ -29,7 +26,6 @@ function initCarousel() {
   buttonLeft.addEventListener('click', function () {
     leftShift += shiftValue;
     picture.style.transform = "translateX(".concat(leftShift, "px)");
-    coords = picture.style.transform;
 
     if (leftShift === 0) {
       buttonLeft.style.display = 'none';
