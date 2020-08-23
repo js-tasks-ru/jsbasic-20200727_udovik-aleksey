@@ -4,37 +4,38 @@ function initCarousel() {
   // ваш код...
   var picture = document.querySelector('.carousel__inner');
   var buttonRight = document.querySelector('.carousel__arrow_right');
-  var buttonLeft = document.querySelector('.carousel__arrow_left');
+  var buttonLeft = document.querySelector('.carousel__arrow_left'); // переменные для вычисления сдвига слайда
+
   var rightShift = 0;
-  var leftShift = 0;
-  var coords = '';
+  var leftShift = 0; // переменная для определения текущего положения слайда
+
+  var coords = ''; // вычисление размера слайда
+
+  var shiftValue = picture.offsetWidth;
   buttonLeft.style.display = 'none';
   buttonRight.addEventListener('click', function () {
-    if (picture.style.transform === coords) {
-      rightShift += -988;
-      picture.style.transform = "translateX(".concat(rightShift, "px)");
-      coords = picture.style.transform;
+    rightShift += -shiftValue;
+    picture.style.transform = "translateX(".concat(rightShift, "px)");
+    coords = picture.style.transform; // скрываю правую стрелочку, при достижении крайнего правого слайда
 
-      if (rightShift === -2964) {
-        buttonRight.style.display = 'none';
-      }
-
-      buttonLeft.style.display = '';
-      leftShift = rightShift;
+    if (rightShift === -(shiftValue * 3)) {
+      buttonRight.style.display = 'none';
     }
+
+    buttonLeft.style.display = ''; // передаю текущее положение изображения в buttonLeft.addEventListener
+
+    leftShift = rightShift;
   });
   buttonLeft.addEventListener('click', function () {
-    if (picture.style.transform === coords) {
-      leftShift += 988;
-      picture.style.transform = "translateX(".concat(leftShift, "px)");
-      coords = picture.style.transform;
+    leftShift += shiftValue;
+    picture.style.transform = "translateX(".concat(leftShift, "px)");
+    coords = picture.style.transform;
 
-      if (leftShift === 0) {
-        buttonLeft.style.display = 'none';
-      }
-
-      buttonRight.style.display = '';
-      rightShift = leftShift;
+    if (leftShift === 0) {
+      buttonLeft.style.display = 'none';
     }
+
+    buttonRight.style.display = '';
+    rightShift = leftShift;
   });
 }
