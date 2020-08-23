@@ -4,9 +4,8 @@ function initCarousel() {
   let picture = document.querySelector('.carousel__inner');
   let buttonRight = document.querySelector('.carousel__arrow_right');
   let buttonLeft = document.querySelector('.carousel__arrow_left');
-  // переменные для вычисления сдвига слайда
-  let rightShift = 0;
-  let leftShift = 0;
+  // переменная для вычисления сдвига слайда
+  let shiftPosition = 0;
   // вычисление размера слайда
   let shiftValue = picture.offsetWidth;
 
@@ -14,29 +13,26 @@ function initCarousel() {
 
   buttonRight.addEventListener('click', function() {
 
-      rightShift += -(shiftValue);
-      picture.style.transform = `translateX(${rightShift}px)`;
+    shiftPosition += -(shiftValue);
+      picture.style.transform = `translateX(${shiftPosition}px)`;
 
       // скрываю правую стрелочку, при достижении крайнего правого слайда
-      if (rightShift === -(shiftValue*3)) {
+      if (shiftPosition === -(shiftValue*3)) {
         buttonRight.style.display = 'none';
       }
 
       buttonLeft.style.display = '';
-      // передаю текущее положение изображения в buttonLeft.addEventListener
-      leftShift = rightShift;
   });
 
   buttonLeft.addEventListener('click', function() {
 
-      leftShift += shiftValue;
-      picture.style.transform = `translateX(${leftShift}px)`;
+      shiftPosition += shiftValue;
+      picture.style.transform = `translateX(${shiftPosition}px)`;
 
-      if (leftShift === 0) {
+      if (shiftPosition === 0) {
         buttonLeft.style.display = 'none';
       }
 
       buttonRight.style.display = '';
-      rightShift = leftShift;
   });
 }
