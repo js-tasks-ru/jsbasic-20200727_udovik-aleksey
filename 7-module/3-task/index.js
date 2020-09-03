@@ -8,8 +8,8 @@ export default class StepSlider {
   }
 
   createStepSlider() {
-    this.sliderElement = document.createElement('div');
-    this.sliderElement.classList.add('slider');
+    const sliderElement = document.createElement('div');
+    sliderElement.classList.add('slider');
 
     const sliderHTMLElement = `
       <div class="slider__thumb" style="left: 0%;">
@@ -19,9 +19,9 @@ export default class StepSlider {
       <div class="slider__steps"></div>
     `;
 
-    this.sliderElement.innerHTML = sliderHTMLElement;
+    sliderElement.innerHTML = sliderHTMLElement;
 
-    let sliderSteps = this.sliderElement.querySelector('.slider__steps');
+    let sliderSteps = sliderElement.querySelector('.slider__steps');
 
     for (let i = 0; i < this.steps; i++) {
       const stepOfSlider = document.createElement('span');
@@ -30,7 +30,7 @@ export default class StepSlider {
       if (i === 0) stepOfSlider.classList.add('slider__step-active');
     }
 
-    return this.sliderElement;
+    return sliderElement;
   }
 
   sliderHandler() {
@@ -41,8 +41,8 @@ export default class StepSlider {
     let segmentAproximateValue = positionInsideSlider * segmentsValue;
     let segmentNumber = Math.round(segmentAproximateValue);
     
-    this.sliderValue = document.querySelector('.slider__value').textContent = segmentNumber;
-    this.value = this.sliderValue;
+    const sliderValue = document.querySelector('.slider__value').textContent = segmentNumber;
+    this.value = sliderValue;
 
     // Изменяю активный класс взависимости от выбранного пользователем сегмента
     let stepOfSlider = this.elem.querySelectorAll('.slider__steps > span');
@@ -54,12 +54,12 @@ export default class StepSlider {
     stepOfSlider[this.value].classList.add('slider__step-active');
 
     // Отображаю положение ползунка
-    let sliderThumb = this.elem.querySelector('.slider__thumb');
-    let sliderProgress = this.elem.querySelector('.slider__progress');
-    this.sliderPercentsValue = segmentNumber / segmentsValue * 100;
+    const sliderThumb = this.elem.querySelector('.slider__thumb');
+    const sliderProgress = this.elem.querySelector('.slider__progress');
+    const sliderPercentsValue = segmentNumber / segmentsValue * 100;
 
-    sliderThumb.style.left = `${this.sliderPercentsValue}%`;
-    sliderProgress.style.width = `${this.sliderPercentsValue}%`;
+    sliderThumb.style.left = `${sliderPercentsValue}%`;
+    sliderProgress.style.width = `${sliderPercentsValue}%`;
     
     // Добавляю пользовательское событие
     this.elem.dispatchEvent(new CustomEvent('slider-change', {
