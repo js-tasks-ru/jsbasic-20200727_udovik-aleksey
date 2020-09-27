@@ -187,7 +187,7 @@ export default class Cart {
 
   }
 
-  onSubmit = (event) => {
+  onSubmit(event) {
     event.preventDefault();
     
     let orderButton = event.target.querySelector('button[type="submit"]');
