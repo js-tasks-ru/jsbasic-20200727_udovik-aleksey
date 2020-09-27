@@ -50,6 +50,7 @@ export default class CartIcon {
     if ( documentWidth <= 767 && this.elem.classList.contains('cart-icon_visible') ) {
       return;
     } else if (window.pageYOffset > this.initialTopCoord ) {
+
       let container = document.querySelector('.container');
       
       let marginRight20 = container.getBoundingClientRect().right + 20;
