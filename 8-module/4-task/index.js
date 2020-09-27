@@ -222,4 +222,3 @@ export default class Cart {
     this.cartIcon.elem.onclick = () => this.renderModal();
   }
 }
-
