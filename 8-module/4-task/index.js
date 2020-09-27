@@ -29,16 +29,9 @@ export default class Cart {
 
   updateProductCount(productId, amount) {
     this.cartItems.map((item) => {
-      // let index = 0;
 
       if (item.product.id === productId) {
         item.count += amount;
-
-        // if (item.count === 0) {
-        //   this.cartItems.splice(index, 1);
-        // }
-
-        // index++;
       }
     });
 
@@ -170,7 +163,6 @@ export default class Cart {
       let id = item.product.id;
       let modal = document.querySelector('.modal');
       let updProduct = modal.querySelector(`[data-product-id=${id}]`);
-      // <- сюда
       let cartCounter = updProduct.querySelector('.cart-counter__count');
       let cartProductPrice = updProduct.querySelector('.cart-product__price');
       let infoPrice = modal.querySelector('.cart-buttons__info-price');
@@ -183,17 +175,13 @@ export default class Cart {
       if (item.count <= 0) {
         updProduct.remove();
         this.cartItems.splice(index, 1);
-        // return;
       }
       index++;
     }
 
     if (this.cartItems.length === 0) {
-      // let cartIconElement = document.querySelector('.cart-icon');
-
       this.modal.close();
       this.cartIcon.update(this);
-      // cartIconElement.classList.remove('.cart-icon_visible');
       return;
     }
 
