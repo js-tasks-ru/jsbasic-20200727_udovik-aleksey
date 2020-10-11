@@ -1,5 +1,5 @@
 export default class StepSlider {
-  constructor({ steps, value = 0 }) {
+  constructor({ steps, value = 3 }) {
     this.steps = steps;
     this.value = value;
     this.isDrag = false;
@@ -16,10 +16,10 @@ export default class StepSlider {
     this.sliderElement.classList.add('slider');
 
     const sliderHTMLElement = `
-      <div class="slider__thumb" style="left: 0%;">
-        <span class="slider__value">0</span>
+      <div class="slider__thumb" style="left: 75%;">
+        <span class="slider__value">3</span>
       </div>
-      <div class="slider__progress" style="width: 0%;"></div>
+      <div class="slider__progress" style="width: 75%;"></div>
       <div class="slider__steps"></div>
     `;
 
